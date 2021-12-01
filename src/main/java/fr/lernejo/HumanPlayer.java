@@ -14,17 +14,17 @@ public class HumanPlayer implements Player {
         logger.log("player : saisie de l'age : ");
         System.out.println("Saisir un age du capitaine");
         long age = scan.nextLong();
-        logger.log("player : age saisie : " + age);
+        logger.log("Age saisie : " + age);
         return age;
     }
 
     @Override
     public void respond(boolean lowerOrGreater) {
         if (lowerOrGreater) {
-            logger.log("player : age saisie est trop grand ");
+            logger.log("Age saisie est trop grand ");
             System.out.println("Plus petit");
         }else{
-            logger.log("player : age saisie est trop petit ");
+            logger.log("Age saisie est trop petit ");
             System.out.println("Plus grand");
         }
     }

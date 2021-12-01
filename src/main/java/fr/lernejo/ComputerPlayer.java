@@ -25,10 +25,10 @@ public class ComputerPlayer implements Player {
     @Override
     public void respond(boolean lowerOrGreater) {
         if (lowerOrGreater) {
-            logger.log("player : age saisie est trop grand ");
+            logger.log("Age saisie est trop grand ");
             this.max = this.oldAge;
         }else{
-            logger.log("player : age saisie est trop petit ");
+            logger.log("Age saisie est trop petit ");
             this.min = this.oldAge;
         }
     }

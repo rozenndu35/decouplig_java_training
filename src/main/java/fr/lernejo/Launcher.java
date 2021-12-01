@@ -1,12 +1,14 @@
 package fr.lernejo;
 
 import fr.lernejo.guessgame.Player;
+import fr.lernejo.logger.Logger;
 
 import java.security.SecureRandom;
 
 public class Launcher {
     private final Logger logger = LoggerFactory.getLogger("launcher");
     private static long MAX_VALUE = 10;
+    private static Logger logger = LoggerFactory.getLogger("launcher");
 
     public static void main(String args[]){
         logger.log("launcher : Bienvenu");
@@ -29,6 +31,7 @@ public class Launcher {
                 logger.log("launcher : le jeu est initialiser");
                 simul.loopUntilPlayerSucceed();
             }catch ( Exception e){
+            	logger.log(e.getClass().getName() + " - " + e.getMessage());
                 help();
             }
 

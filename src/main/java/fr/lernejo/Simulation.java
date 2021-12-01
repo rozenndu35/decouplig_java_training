@@ -20,7 +20,7 @@ public class Simulation {
     }
 
     public void initialize(long numberToGuess) {
-    	logger.log("Simulation: l'age du capitaine a trouver est " + numberToGuess);
+    	logger.log("L'age du capitaine a trouver est " + numberToGuess);
         this.numberToGuess = numberToGuess;
     }
 
@@ -29,15 +29,15 @@ public class Simulation {
      */
     private boolean nextRound() {
         long ageTest = this.player.askNextGuess();
-        logger.log("Simulation : age saisie par l'utilisateur: " + ageTest);
+        logger.log("Age saisie par l'utilisateur: " + ageTest);
         if (ageTest == this.numberToGuess){
-            logger.log("Simulation : l'age du capitaine est : " + ageTest);
+            logger.log("L'age du capitaine est : " + ageTest);
             return true;
         }else if (ageTest > this.numberToGuess){
-            logger.log("Simulation: l'age du capitaine est plus petit");
+            logger.log("L'age du capitaine est plus petit");
             this.player.respond(true);
         }else{
-            logger.log("Simulation: l'age du capitaine est plus grand");
+            logger.log("L'age du capitaine est plus grand");
             this.player.respond(false);
         }
         return false;
@@ -45,11 +45,11 @@ public class Simulation {
 
     public void loopUntilPlayerSucceed() {
         boolean trouver = false;
-        int itération = 0;
+        int iteration = 0;
         long lStartTime = System.currentTimeMillis();
-        while (!trouver && itération < nombre_iteration_max){
+        while (!trouver && iteration < nombre_iteration_max){
             trouver = nextRound();
-            itération ++;
+            iteration ++;
         }
         long lEndTime = System.currentTimeMillis();
         long execution = lEndTime - lStartTime;
@@ -57,8 +57,9 @@ public class Simulation {
         		TimeUnit.MILLISECONDS.toSeconds(execution) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(execution)),
                 TimeUnit.MILLISECONDS.toMillis(execution) - TimeUnit.SECONDS.toSeconds(TimeUnit.MILLISECONDS.toSeconds(execution)));
 
-        logger.log("Simulation: Nombre d'iteration : " + itération + " reussi : " + trouver);
-        logger.log("Simulation: temps d'execution : " + msS);
+        logger.log("Nombre d'iteration : " + iteration + " reussi : " + trouver);
+        logger.log("Temps d'execution : " + msS);
+        System.out.println("Fin en : "+ msS + "Le resulat est trouver : " + trouver + " en " + iteration + " iteration");
 
     }
 }
