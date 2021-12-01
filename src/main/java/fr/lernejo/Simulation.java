@@ -3,14 +3,20 @@ package fr.lernejo;
 import fr.lernejo.guessgame.Player;
 import fr.lernejo.logger.Logger;
 
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.util.concurrent.TimeUnit;
+
 public class Simulation {
 
     private final Logger logger = LoggerFactory.getLogger("simulation");
     private final Player player;
     private long numberToGuess;
+    private long nombre_iteration_max;
 
-    public Simulation(Player player) {
+    public Simulation(Player player, long p_nombre_iteration_max ) {
         this.player = player;
+        this.nombre_iteration_max = p_nombre_iteration_max;
     }
 
     public void initialize(long numberToGuess) {
@@ -39,8 +45,20 @@ public class Simulation {
 
     public void loopUntilPlayerSucceed() {
         boolean trouver = false;
-        while (!trouver){
+        int itération = 0;
+        long lStartTime = System.currentTimeMillis();
+        while (!trouver && itération < nombre_iteration_max){
             trouver = nextRound();
+            itération ++;
         }
+        long lEndTime = System.currentTimeMillis();
+        long execution = lEndTime - lStartTime;
+        String msS = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(execution),
+        		TimeUnit.MILLISECONDS.toSeconds(execution) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(execution)),
+                TimeUnit.MILLISECONDS.toMillis(execution) - TimeUnit.SECONDS.toSeconds(TimeUnit.MILLISECONDS.toSeconds(execution)));
+
+        logger.log("Simulation: Nombre d'iteration : " + itération + " reussi : " + trouver);
+        logger.log("Simulation: temps d'execution : " + msS);
+
     }
 }
