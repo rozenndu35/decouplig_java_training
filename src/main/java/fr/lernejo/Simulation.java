@@ -29,6 +29,7 @@ public class Simulation {
      * @return true if the player have guessed the right number
      */
     private boolean nextRound() {
+        logger.log("Saisie  de l'age par l'utilisateur: ");
         long ageTest = this.player.askNextGuess();
         logger.log("Age saisie par l'utilisateur: " + ageTest);
         if (ageTest == this.numberToGuess){
@@ -48,7 +49,9 @@ public class Simulation {
         boolean trouver = false;
         int iteration = 0;
         long lStartTime = System.currentTimeMillis();
+        logger.log("Debut de la partie");
         while (!trouver && iteration < nombre_iteration_max){
+        	logger.log("Nouvelle iteration");
             trouver = nextRound();
             iteration ++;
         }
