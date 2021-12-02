@@ -55,6 +55,10 @@ public class Simulation {
             trouver = nextRound();
             iteration ++;
         }
+        String gagner = "win";
+        if(!trouver) {
+        	gagner = "lost";
+        }
         long lEndTime = System.currentTimeMillis();
         long execution = lEndTime - lStartTime;
         String msS = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(execution),
@@ -63,8 +67,8 @@ public class Simulation {
 
         logger.log("Nombre d'iteration : " + iteration + " reussi : " + trouver);
         logger.log("Temps d'execution : " + msS);
-        logger.log("Fin en : "+ msS + " Le resulat est trouver : " + trouver + " en " + iteration + " iteration");
-        System.out.println("Fin en : "+ msS + " Le resulat est trouver : " + trouver + " en " + iteration + " iteration");
+        logger.log("Fin en : "+ msS + " Le resulat est trouver : " + gagner + " en " + iteration + " iteration");
+        System.out.println("Fin en : "+ msS + " Le resulat est trouver : " + gagner + " en " + iteration + " iteration");
 
     }
 }
