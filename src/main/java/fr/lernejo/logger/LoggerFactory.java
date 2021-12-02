@@ -1,7 +1,9 @@
-package fr.lernejo;
+package fr.lernejo.logger;
 
 import java.util.function.Predicate;
 
+import fr.lernejo.ConsoleLogger;
+import fr.lernejo.FileLogger;
 import fr.lernejo.logger.ContextualLogger;
 import fr.lernejo.logger.Logger;
 

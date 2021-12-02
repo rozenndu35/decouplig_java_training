@@ -2,6 +2,7 @@ package fr.lernejo;
 
 import fr.lernejo.guessgame.Player;
 import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
 
 import java.time.Instant;
 import java.time.ZoneOffset;

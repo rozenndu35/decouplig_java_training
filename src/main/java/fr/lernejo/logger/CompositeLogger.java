@@ -1,4 +1,4 @@
-package fr.lernejo;
+package fr.lernejo.logger;
 
 import fr.lernejo.logger.Logger;
 

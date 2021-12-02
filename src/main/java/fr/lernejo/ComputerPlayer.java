@@ -2,6 +2,7 @@ package fr.lernejo;
 
 import fr.lernejo.guessgame.Player;
 import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
 
 public class ComputerPlayer implements Player {
 
@@ -20,7 +21,7 @@ public class ComputerPlayer implements Player {
             long choix = choisPossible / 2;
             this.oldAge = this.min + choix;
         }
-        logger.log("Age saisie : " + age);
+        logger.log("Age saisie : " + oldAge);
         return this.oldAge;
     }
 

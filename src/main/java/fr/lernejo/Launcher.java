@@ -2,13 +2,13 @@ package fr.lernejo;
 
 import fr.lernejo.guessgame.Player;
 import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
 
 import java.security.SecureRandom;
 
 public class Launcher {
-    private final Logger logger = LoggerFactory.getLogger("launcher");
+    private final static Logger logger = LoggerFactory.getLogger("launcher");
     private static long MAX_VALUE = 10;
-    private static Logger logger = LoggerFactory.getLogger("launcher");
 
     public static void main(String args[]){
         logger.log("Bienvenu");
