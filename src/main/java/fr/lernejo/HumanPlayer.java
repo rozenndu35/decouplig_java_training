@@ -23,9 +23,11 @@ public class HumanPlayer implements Player {
     public void respond(boolean lowerOrGreater) {
         if (lowerOrGreater) {
             logger.log("Age saisie est trop grand ");
+            logger.log("Plus petit");
             System.out.println("Plus petit");
         }else{
             logger.log("Age saisie est trop petit ");
+            logger.log("Plus grand");
             System.out.println("Plus grand");
         }
     }
