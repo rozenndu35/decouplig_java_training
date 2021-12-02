@@ -13,7 +13,7 @@ public class Launcher {
     public static void main(String args[]){
         logger.log("Bienvenu");
         if ( args.length > 0 && args[0].equals("-interactive")){
-            logger.log("choix d'un humain");
+            logger.log("choix d'un humain -interactive");
             SecureRandom random = new SecureRandom();
             long nombreAleatoire = random.nextInt(100);
             Player humain = new HumanPlayer();
@@ -24,7 +24,7 @@ public class Launcher {
         }else if (args.length > 0 && args[0].equals("-auto")){
             try{                
                 long nombreAleatoire = Long.parseLong(args[1]);
-                logger.log("choix d'un ordinateur");
+                logger.log("choix d'un ordinateur -auto " + nombreAleatoire);
                 Player ordinateur = new ComputerPlayer();
                 Simulation simul = new Simulation(ordinateur, 100);
                 simul.initialize(nombreAleatoire);
