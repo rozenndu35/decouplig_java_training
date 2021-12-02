@@ -12,6 +12,7 @@ public class ComputerPlayer implements Player {
 
     @Override
     public long askNextGuess() {
+        logger.log("saisie de l'age : ");
         if (this.max == this.min){
             this.oldAge = max;
         }else{
@@ -19,6 +20,7 @@ public class ComputerPlayer implements Player {
             long choix = choisPossible / 2;
             this.oldAge = this.min + choix;
         }
+        logger.log("Age saisie : " + age);
         return this.oldAge;
     }
 

@@ -11,24 +11,24 @@ public class Launcher {
     private static Logger logger = LoggerFactory.getLogger("launcher");
 
     public static void main(String args[]){
-        logger.log("launcher : Bienvenu");
+        logger.log("Bienvenu");
         if ( args.length > 0 && args[0].equals("-interactive")){
-            logger.log("launcher : choix d'un humain");
+            logger.log("choix d'un humain");
             SecureRandom random = new SecureRandom();
             long nombreAleatoire = random.nextInt(100);
             Player humain = new HumanPlayer();
             Simulation simul = new Simulation(humain, MAX_VALUE);
             simul.initialize(nombreAleatoire);
-            logger.log("launcher : le jeu est initialiser");
+            logger.log("le jeu est initialiser");
             simul.loopUntilPlayerSucceed();
         }else if (args.length > 0 && args[0].equals("-auto")){
             try{                
                 long nombreAleatoire = Long.parseLong(args[1]);
-                logger.log("launcher : choix d'un ordinateur");
+                logger.log("choix d'un ordinateur");
                 Player ordinateur = new ComputerPlayer();
                 Simulation simul = new Simulation(ordinateur, 100);
                 simul.initialize(nombreAleatoire);
-                logger.log("launcher : le jeu est initialiser");
+                logger.log("le jeu est initialiser");
                 simul.loopUntilPlayerSucceed();
             }catch ( Exception e){
             	logger.log(e.getClass().getName() + " - " + e.getMessage());
@@ -41,7 +41,7 @@ public class Launcher {
     }
 
     public static void help(){
-        logger.log("launcher : erreur affichage de l'aide");
+        logger.log("erreur affichage de l'aide");
         System.out.println("Pour lancer en mode player : -interactive");
         System.out.println("Pour lancer en mode ordinateur : -auto long");
 

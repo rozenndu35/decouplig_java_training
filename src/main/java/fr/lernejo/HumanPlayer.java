@@ -11,7 +11,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public long askNextGuess() {
-        logger.log("player : saisie de l'age : ");
+        logger.log("saisie de l'age : ");
         System.out.println("Saisir un age du capitaine");
         long age = scan.nextLong();
         logger.log("Age saisie : " + age);
