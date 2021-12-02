@@ -10,9 +10,9 @@ import fr.lernejo.logger.Logger;
 public class LoggerFactory {
     public static Logger getLogger(String name){
         Predicate<String> condition = message -> message.contains("simulation");
-        ContextualLogger logerContextFile = new ContextualLogger(name , new FileLogger("../LoggerApp.txt"));
-        ContextualLogger logerContextConsol = new ContextualLogger(name , new ConsoleLogger());
+        Logger fileLogger = new ContextualLogger(name, new FileLogger("../LoggerApp.txt"));
+        Logger consoleLogger = new ContextualLogger(name , new FilteredLogger(new ConsoleLogger(), condition));
         
-        return new CompositeLogger(new FilteredLogger(logerContextFile, condition, name), logerContextConsol) ;
+        return new CompositeLogger(fileLogger, consoleLogger) ;
     }
 }

@@ -63,6 +63,7 @@ public class Simulation {
 
         logger.log("Nombre d'iteration : " + iteration + " reussi : " + trouver);
         logger.log("Temps d'execution : " + msS);
+        logger.log("Fin en : "+ msS + " Le resulat est trouver : " + trouver + " en " + iteration + " iteration");
         System.out.println("Fin en : "+ msS + " Le resulat est trouver : " + trouver + " en " + iteration + " iteration");
 
     }
